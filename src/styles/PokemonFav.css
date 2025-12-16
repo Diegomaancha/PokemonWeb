@@ -1,0 +1,59 @@
+/* src/styles/FavSelector.css */
+
+.popup-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+-webkit-backdrop-filter: blur(5px);
+backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup {
+    background: #20252d;
+    padding: 25px;
+    border-radius: 18px;
+    width: 380px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 0 20px #000;
+}
+
+.popup input {
+    width: 90%;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    margin-bottom: 12px;
+}
+
+.selector-list {
+    max-height: 300px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.selector-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.selector-list li:hover {
+    background: #2d3541;
+}
+
+.selector-list img {
+    width: 40px;
+}

@@ -1,13 +1,43 @@
-import React from 'react'
-import PokemonList from "./PokemonList";
+// src/App.jsx
+import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div style={{ padding: "20px" }}>
-      <h1>Listado de Pokémon</h1>
-      <PokemonList />
-    </div>
-  );
+import Navbar from "./Components/Navbar";
+import FavPokemonSelector from "./components/PokemonFavPopUp";
+
+import PokemonList from "./pages/PokemonList";
+import Types from "./pages/Types";
+import Abilities from "./pages/Abilities";
+import Items from "./pages/Items";
+import Moves from "./pages/Moves";
+import PokemonDetail from "./pages/PokemonDetail";
+
+
+export default function App() {
+    const [showPopup, setShowPopup] = useState(false);
+
+    useEffect(() => {
+        const fav = localStorage.getItem("favPokemon");
+        if (!fav) setShowPopup(true);
+    }, []);
+
+    const handleSelect = (favData) => {
+        setShowPopup(false);
+    };
+
+    return (
+        <BrowserRouter>
+            {showPopup && <FavPokemonSelector onSelect={handleSelect} />}
+            <Navbar />
+
+            <Routes>
+                <Route path="/pokemon/:id" element={<PokemonDetail />} />
+                <Route path="/" element={<PokemonList />} />
+                <Route path="/types" element={<Types />} />
+                <Route path="/abilities" element={<Abilities />} />
+                <Route path="/items" element={<Items />} />
+                <Route path="/moves" element={<Moves />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
-
-export default App;

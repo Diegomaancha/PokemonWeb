@@ -1,0 +1,141 @@
+/* ---------------------------------------------------------
+   ESTILOS GENERALES DE LA PÁGINA PRINCIPAL
+--------------------------------------------------------- */
+
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+}
+
+.page h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: #f5f6fa;
+    text-align: left;
+}
+
+/* ---------------------------------------------------------
+   FILTROS (selector en PokémonList.jsx)
+--------------------------------------------------------- */
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-label {
+    font-weight: 600;
+    color: #f5f6fa;
+}
+
+.filter-select {
+    padding: 0.5rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid #dcdde1;
+    font-weight: 600;
+    background: #fff;
+}
+
+/* ---------------------------------------------------------
+   GRID RESPONSIVE PARA CARTAS DE POKÉMON
+--------------------------------------------------------- */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+/* ---------------------------------------------------------
+   PÁGINAS SECUNDARIAS (Tipos, Objetos, Habilidades, Movimientos)
+--------------------------------------------------------- */
+
+.subpage {
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(6px); /* soporte extra */
+  backdrop-filter: blur(6px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.22);
+  padding: 2rem 1.5rem 2.5rem;
+}
+.subpage h1 {
+    font-size: 2.4rem;
+    margin-bottom: 1.4rem;
+    color: #f5f6fa;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Lista en formato tarjeta elegante */
+.subpage-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    list-style: none;
+    padding: 0;
+}
+
+.subpage-list li {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f1f5 40%, #dcdde1 100%);
+    padding: 1rem;
+    text-align: center;
+    border-radius: 12px;
+    color: #192a56;
+    font-weight: 600;
+    text-transform: capitalize;
+
+    border: 2px solid #273c75;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15);
+
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.subpage-list li:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .page {
+        padding: 1.5rem 1rem;
+    }
+
+    .page h1 {
+        font-size: 2.2rem;
+    }
+
+    .filter-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-select {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .subpage {
+        padding: 1.5rem 1rem 2rem;
+    }
+
+    .subpage h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .page h1,
+    .subpage h1 {
+        text-align: center;
+    }
+}
