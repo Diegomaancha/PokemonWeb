@@ -1,43 +1,37 @@
-// src/components/Navbar.jsx
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import PokemonSearchBar from "./PokemonSearchBar";
 import "../styles/Navbar.css";
 
-export default function Navbar() {
-    const [fav, setFav] = useState(null);
+export default function Navbar({ search, onSearchChange, type, onTypeChange }) {
+    const location = useLocation();
 
-    useEffect(() => {
-        const raw = localStorage.getItem("favPokemon");
-        if (!raw) return;
-
-        try {
-            const parsed = JSON.parse(raw);
-            setFav(parsed);
-        } catch (error) {
-            console.error("FavPokemon corrupto, reseteando...", error);
-            localStorage.removeItem("favPokemon");
-        }
-    }, []);
+    // 🔥 SOLO mostramos buscador en la home
+    const showSearch = location.pathname === "/";
 
     return (
-        <nav className="nav">
-            <h2 className="logo">PokéDex</h2>
+        <header className="navbar">
+            <div className="navbar-top">
+                <h2 className="logo">PokéDex</h2>
 
-            <ul>
-                <li><Link to="/">Pokémon</Link></li>
-                <li><Link to="/types">Tipos</Link></li>
-                <li><Link to="/abilities">Habilidades</Link></li>
-                <li><Link to="/items">Objetos</Link></li>
-                <li><Link to="/moves">Movimientos</Link></li>
-            </ul>
-
-            <div className="fav-container">
-                {fav ? (
-                    <img className="fav-img" src={fav.img} alt={fav.name} />
-                ) : (
-                    <span className="no-fav">⭐</span>
-                )}
+                <nav>
+                    <Link to="/">Pokémon</Link>
+                    <Link to="/types">Tipos</Link>
+                    <Link to="/abilities">Habilidades</Link>
+                    <Link to="/items">Objetos</Link>
+                    <Link to="/moves">Movimientos</Link>
+                </nav>
             </div>
-        </nav>
+
+            {showSearch && (
+                <div className="navbar-bottom">
+                    <PokemonSearchBar
+                        search={search}
+                        onSearchChange={onSearchChange}
+                        type={type}
+                        onTypeChange={onTypeChange}
+                    />
+                </div>
+            )}
+        </header>
     );
 }

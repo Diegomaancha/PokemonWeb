@@ -5,21 +5,19 @@ export default function Types() {
     const { data, loading } = useGet("https://pokeapi.co/api/v2/type");
 
     if (loading) return <Loader />;
-
-    // 🔒 Protección REAL (Types la necesita)
-    if (!Array.isArray(data)) {
-        return <p>Cargando tipos...</p>;
-    }
+    if (!Array.isArray(data)) return null;
 
     return (
         <div className="subpage">
-            <h1>Tipos de Pokémon</h1>
+            <h1>Tipos</h1>
 
-            <ul className="subpage-list">
-                {data.map((t, idx) => (
-                    <li key={idx}>{t.name}</li>
+            <div className="subpage-list">
+                {data.map((type) => (
+                    <div key={type.name} className="subpage-item">
+                        {type.name}
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 }

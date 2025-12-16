@@ -1,49 +1,111 @@
-.nav {
+/* =====================================================
+   CONTENEDOR GENERAL NAVBAR
+===================================================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(20, 25, 45, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* =====================================================
+   FILA SUPERIOR (LOGO + LINKS)
+===================================================== */
+.navbar-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #353b48;
-    padding: 20px;
-    color: white;
+
+    padding: 1rem 2rem;
 }
 
+/* LOGO */
 .logo {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+
+
+/* LINKS */
+.navbar-top nav {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 22px;
-    font-weight: bold;
+    gap: 1.5rem;
 }
 
-.nav ul {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-}
-
-.nav a {
-    color: white;
+.navbar-top a {
+    position: relative;
+    color: #f5f6fa;
+    font-weight: 700;
     text-decoration: none;
-    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 0.2rem 0;
+    transition: color 0.2s ease;
 }
 
-.nav a:hover {
+/* subrayado animado */
+.navbar-top a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: #00a8ff;
+    transition: width 0.25s ease;
+}
+
+.navbar-top a:hover {
     color: #00a8ff;
 }
 
-.fav-img-box {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 0.3rem 0.6rem;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.18);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+.navbar-top a:hover::after {
+    width: 100%;
 }
 
-.fav-img-box img {
-    width: 40px;
-    height: 40px;
-    image-rendering: pixelated;
+/* =====================================================
+   FILA INFERIOR (BUSCADOR)
+===================================================== */
+.navbar-bottom {
+    padding: 0.8rem 2rem 1.2rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 900px) {
+    .navbar-top {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .navbar-top nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .navbar-bottom {
+        padding: 0.6rem 1rem 1rem;
+    }
 }

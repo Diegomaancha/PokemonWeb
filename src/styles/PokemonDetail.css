@@ -1,10 +1,18 @@
 .pokemon-detail {
     max-width: 900px;
-    margin: auto;
+    margin: 0 auto;
+    padding: 4rem 2rem;
     text-align: center;
-    padding: 40px;
     color: white;
+
+    /* ✅ CRISTAL TRANSPARENTE */
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    border-radius: 28px;
 }
+
 
 .pokemon-big {
     width: 260px;

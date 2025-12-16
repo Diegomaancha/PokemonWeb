@@ -1,63 +1,92 @@
-/* src/styles/PokemonCard.css */
+.card-link {
+    text-decoration: none;
+}
 
+/* ---------- CARTA BASE ---------- */
 .pokemon-card {
-    background: linear-gradient(135deg, #ffffff 0%, #f5f6fa 40%, #dcdde1 100%);
-    border-radius: 18px;
-    padding: 1.25rem 1rem 1.5rem;
+    border-radius: 22px;
+    padding: 1.6rem 1rem 2.2rem;
     text-align: center;
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
-    border: 2px solid #273c75;
+    color: #1e272e;
+    font-weight: 700;
+
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
     overflow: hidden;
 }
 
-.pokemon-card::before {
-    content: "";
-    position: absolute;
-    inset: -40%;
-    background: radial-gradient(circle at top,
-            rgba(9, 132, 227, 0.35),
-            transparent 55%);
-    opacity: 0.6;
-    pointer-events: none;
+.pokemon-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
 }
 
+/* ---------- TÍTULO ---------- */
 .pokemon-card h3 {
-    margin: 0 0 0.5rem;
+    margin-bottom: 0.6rem;
     letter-spacing: 1px;
-    color: #192a56;
 }
 
+/* ---------- IMAGEN ---------- */
 .pokemon-card img {
-    width: 96px;
-    height: 96px;
-    image-rendering: pixelated;
-    position: relative;
-    z-index: 1;
-}
-
-.pokemon-card strong {
+    width: 120px;
+    margin: 0.6rem auto 1.2rem;
     display: block;
-    margin-top: 0.75rem;
-    margin-bottom: 0.35rem;
-    color: #2f3640;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.45));
 }
 
-.pokemon-card ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* ---------- TIPOS ---------- */
+.type-badges {
     display: flex;
     justify-content: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
     flex-wrap: wrap;
 }
 
-.pokemon-card li {
-    padding: 0.15rem 0.6rem;
+.badge {
+    padding: 0.35rem 0.9rem;
     border-radius: 999px;
-    background: #273c75;
-    color: #f5f6fa;
     font-size: 0.75rem;
+    color: white;
     text-transform: capitalize;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.25);
 }
+
+/* ---------- FONDOS POR TIPO (CARTA) ---------- */
+.type-fire { background: linear-gradient(135deg, #ff9f43, #ee5253); }
+.type-water { background: linear-gradient(135deg, #54a0ff, #2e86de); }
+.type-grass { background: linear-gradient(135deg, #1dd1a1, #10ac84); }
+.type-electric { background: linear-gradient(135deg, #feca57, #ff9f43); }
+.type-ice { background: linear-gradient(135deg, #48dbfb, #0abde3); }
+.type-psychic { background: linear-gradient(135deg, #ff6b81, #e84393); }
+.type-fairy { background: linear-gradient(135deg, #f8a5c2, #f78fb3); }
+.type-dark { background: linear-gradient(135deg, #576574, #222f3e); }
+.type-ghost { background: linear-gradient(135deg, #5f27cd, #341f97); }
+.type-rock { background: linear-gradient(135deg, #c8d6e5, #8395a7); }
+.type-ground { background: linear-gradient(135deg, #e1b12c, #c23616); }
+.type-poison { background: linear-gradient(135deg, #9b59b6, #6c3483); }
+.type-bug { background: linear-gradient(135deg, #a3cb38, #6ab04c); }
+.type-fighting { background: linear-gradient(135deg, #eb4d4b, #c0392b); }
+.type-dragon { background: linear-gradient(135deg, #341f97, #5f27cd); }
+.type-normal { background: linear-gradient(135deg, #dcdde1, #b2bec3); }
+
+/* ---------- BADGES POR TIPO ---------- */
+.badge-fire { background: #e84118; }
+.badge-water { background: #0984e3; }
+.badge-grass { background: #00b894; }
+.badge-electric { background: #fbc531; color: #2f3640; }
+.badge-ice { background: #74b9ff; }
+.badge-psychic { background: #d63031; }
+.badge-fairy { background: #fd79a8; }
+.badge-dark { background: #2d3436; }
+.badge-ghost { background: #6c5ce7; }
+.badge-rock { background: #636e72; }
+.badge-ground { background: #e17055; }
+.badge-poison { background: #8e44ad; }
+.badge-bug { background: #6ab04c; }
+.badge-fighting { background: #c0392b; }
+.badge-dragon { background: #4834d4; }
+.badge-normal { background: #7f8fa6; }
