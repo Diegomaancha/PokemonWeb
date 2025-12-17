@@ -1,11 +1,18 @@
 export default function PokemonSearchBar({ search, onSearchChange, type, onTypeChange }) {
     return (
         <div className="searchbar">
-            <input
-                value={search}
-                onChange={(e) => onSearchChange(e.target.value)}
-                placeholder="Buscar Pokémon..."
-            />
+            <div className="search-input-box">
+                <input
+                    type="text"
+                    value={search}
+                    onChange={(e) => onSearchChange(e.target.value)}
+                    placeholder="Buscar Pokémon..."
+                />
+
+                <button className="search-btn" type="button">
+                    🔍
+                </button>
+            </div>
 
             <select
                 value={type}
@@ -18,8 +25,15 @@ export default function PokemonSearchBar({ search, onSearchChange, type, onTypeC
                 <option value="bug">Bicho</option>
                 <option value="poison">Veneno</option>
                 <option value="flying">Volador</option>
+                <option value="fairy">Hada</option>
+                <option value="psychic">Psiquico</option>
+                <option value="rock">Roca</option>
+                <option value="ghost">Fantasma</option>
+                <option value="electric">Electrico</option>
+                <option value="fighting">Lucha</option>
+                <option value="ground">Suelo</option>
                 <option value="normal">Normal</option>
-                {/* deja tus opciones como las tengas, esto es ejemplo */}
+
             </select>
         </div>
     );

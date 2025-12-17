@@ -3,33 +3,47 @@
     align-items: center;
     gap: 1rem;
 
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    padding: 0.6rem 1.2rem;
+    background: #ff9f43;
+    padding: 0.7rem 1rem;
     border-radius: 999px;
 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
 }
 
-/* INPUT */
+/* CAJA INPUT + BOTÓN */
 .search-input-box {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-
-    background: #ffffff;
+    background: #e9eef6;
     border-radius: 999px;
-    padding: 0.4rem 1rem;
+    overflow: hidden;
 }
 
+/* INPUT */
 .search-input-box input {
     border: none;
     outline: none;
-    font-weight: 700;
+    padding: 0.55rem 0.9rem;
     font-size: 0.9rem;
+    font-weight: 700;
     width: 180px;
+    background: transparent;
+    color: #1e272e;
+}
+
+/* BOTÓN LUPA */
+.search-btn {
+    border: none;
+    background: #00a8ff;
+    color: white;
+    font-size: 1rem;
+    padding: 0.55rem 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.search-btn:hover {
+    background: #0097e6;
 }
 
 /* SELECT */
@@ -37,12 +51,13 @@
     border: none;
     outline: none;
 
-    padding: 0.4rem 1rem;
+    padding: 0.45rem 1.1rem;
     border-radius: 999px;
 
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 
+    color: #192a56;
     background: linear-gradient(135deg, #ffffff, #dff9fb);
     cursor: pointer;
 }
